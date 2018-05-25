@@ -88,6 +88,16 @@ public class LocationService {
 		return loc;
 	}
 	
+	
+	
+	public void updateEmployee(int locNum, int empId) {
+		System.out.println("Request recieved to update employee info in location:: " + locNum + " emp " + empId);
+		WorkLocationMapping locMapping = locationDAO.findOne(locNum);
+		locMapping.setEmployeeId(empId);
+		locMapping.setOccupied(1);
+		locationDAO.save(locMapping);
+	}
+	
 	 /**
      * Returns an array of null properties of an object
      * @param source
